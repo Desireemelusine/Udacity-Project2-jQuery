@@ -1,43 +1,44 @@
+//----------------------------------- JSON -------------------------------------------------
 var bio = {
   "name": "Désirée Melusine",
   "role": "Junior Front-End Developer",
   "welcomeMessage": "I'm a self-learner and eternal curious! If there is a need, an idea, an aim, a passion for the work and the right mindset, the challenges will be defeat by our creative minds and they will become our tools to succeed.",
+  "biopic": "images/me.jpg",
   "contacts": {
     "mobile": "351 938897705",
     "email": "demelusine@gmail.com",
-    "location": "Portugal",
+    "location": "Lisboa",
     "github": "https://github.com/Desireemelusine",
     "linkedin": "https://www.linkedin.com/in/desiree-melusine"
   },
-  "skills": ["HTML5", "CSS", "JavaScript", "Bootstrap", "jQuery", "JSON", "Git", "gitHub"]
+  "skills": ["HTML5", "CSS", "JavaScript", "Bootstrap", "jQuery", "JSON", "Git", "GitHub", "Illustrator", "Photoshop", "Indesign", "3Dmax", "Solidworks", "Português | N", "English | F", "French | F", "Spanish | Adv"]
 }
-
 
 var education = {
   "schools": [
     {
-      "degree": "Executive Coaching",
-      "year": 2017,
-      "name": "Cegoc - Lisboa|Portugal",
-      "Major": ["Advanced Certification accredited by IFC ( International Coach Federation )"],
-      "url": "https://www.cegoc.pt/curso-formacao/escola-coaching-executivo/"
-    },
-    {
       "degree": "Industrial Design - Product Design",
       "year": 2008,
-      "name": "Belas Artes - São Paulo|Brasil",
-      "Major": ["Bachelor"],
-      "url": "http://www.belasartes.br/site/"
+      "name": "Belas Artes",
+      "major": ["Bachelor"],
+      "location": "São Paulo, Brasil"
     },
     {
       "degree": "Business Development and Managment",
       "year": 2007,
-      "name": "Sebrae - São Paulo|Brasil",
-      "Major": ["Advanced Studies"],
-      "url": "http://www.sebrae.com.br"
+      "name": "Sebrae",
+      "major": ["Advanced Studies"],
+      "location": "São Paulo, Brasil"
+    },
+    {
+      "degree": "Executive Coaching",
+      "year": 2017,
+      "name": "Cegoc",
+      "major": ["Advanced Certification accredited by IFC ( International Coach Federation )"],
+      "location": "Lisboa, Portugal"
     }
   ],
-  "OnlineCourses": [
+  "onlineCourses": [
     {
       "title": "Nanodegree in Front-End Developer",
       "dates": 2018,
@@ -52,7 +53,7 @@ var work = {
     {
       "employer": "Product Design",
       "title": "Packaging Design for a line of chocolate products, produced in Europe but focused on the Brazilian wholesale market",
-      "location": "Portugal",
+      "location": "Lisboa",
       "dates":"2017-2018",
       "description":"Market study and product lifecycle, logo and brand development, packaging adequacy and labeling based on policies, laws, and requirements.",
       "images": "images/fry.jpg"
@@ -60,7 +61,7 @@ var work = {
     {
       "employer": "Business Development and Product Design",
       "title": "Business Development of an aesthetic space in Lisbon, exclusively focused on the international market with a line of private label cosmetic products",
-      "location": "Portugal",
+      "location": "Lisboa",
       "dates":"2012-2017",
       "description":"The main role was to gain experience in company management, develop experience in the human resources sector, customer relationship x service x employee, work leadership, high performance, training and the whole human relationship (people care) to raise the company's results through a motivational, sustainable and inspiring environment.",
       "images": "images/fry.jpg"
@@ -68,7 +69,7 @@ var work = {
     {
       "employer": "Business Development and Product Development",
       "title": "Responsable for the business development of 27 Gourmet Products for the Portuguese Market and also the product development, brand, packaging and logistics",
-      "location": "Portugal",
+      "location": "Lisboa",
       "dates":"2012-2017",
       "description": "Logo and Brand Development | Market research, product development based on market, policies, laws, and requirements.  Product Family Development | Tea, Coffee, Chocolate, and Dragges (27 products).  Packaging and Catalog Development | Prototyping, labeling, catalog, promotional stand for stores, samples, product photo sessions direction, website development and e-commerce.  Business Manager and Implementation of the Product in the Portuguese Market | Management of national and international suppliers, logistics management, stock control,inventory, Online sales management, production control - monitoring - parcel delivery company within more than 60 points of sale in Portugal",
       "images": "images/fry.jpg"
@@ -76,7 +77,7 @@ var work = {
     {
       "employer": "Product Development and Production",
       "title": "Product design and development in the following areas: Fashion|Swimwear, Home Deco|Ceramic, Jewelry|Silver Jewelry",
-      "location": "Brazil",
+      "location": "São Paulo",
       "dates":"2002-2011",
       "description": "Product | Market research, collection development, product lifecycle testing, catalog and merchandising material. Management | Suppliers, purchasing, logistics, monitoring and production Control",
       "images": "images/fry.jpg"
@@ -87,88 +88,132 @@ var work = {
 var projects = {
   "projects": [
     {
-      "title": "Project1",
-      "dates": "03/2018",
-      "description": "This is a project related to HTML and CSS.",
-      "images": "images/fry.jpg"
+      "title": "Personal Portfolio",
+      "dates": "05/2018",
+      "description": "I developed a personal portfolio page from the ground using:HTML - CSS - Bootstrap. The page is fully responsive and works on mobile, tablet and desktop browsers: @media screen and (max-width: 500px)| @media screen and (min-width: 501px) | @media screen and (min-width: 1000px)",
+      "link": "https://desireemelusine.github.io/test_webportfolio/",
+      "image": "images/projectOne.jpg"
     }
   ]
 }
+//----------------------------------- END JSON -------------------------------------------------
 
-var formatted_name = HTMLheaderName.replace("%data%", bio.name);
-$("#header").append(formatted_name);
+//bio
+bio.display = function(){
+  var formatted_name = HTMLheaderName.replace("%data%", bio.name);
+  var formatted_role = HTMLheaderRole.replace("%data%", bio.role);
+  var formatted_message = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
+  var formatted_biopic = HTMLbioPic.replace("%data%",bio.biopic);
+  $("#header").prepend(formatted_biopic).prepend(formatted_message).prepend(formatted_role).prepend(formatted_name);
+  var formatted_contacts = HTMLcontactGeneric.replace("%data%", bio.contacts);
+  var formatted_mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+  var formatted_email = HTMLemail.replace("%data%", bio.contacts.email);
+  var formatted_location = HTMLlocation.replace("%data%", bio.contacts.location);
+  var formatted_linkedin = HTMLlinkedin.replace("%data%", bio.contacts.linkedin);
+  var formatted_github = HTMLgithub.replace("%data%", bio.contacts.github);
+  $("#topContacts").append(formatted_mobile).append(formatted_email).append(formatted_location).append(formatted_linkedin).append(formatted_github);
 
-// bio.skills
-if (bio.skills.length > 0){
-  $("#header").append(HTMLskillsStart);
-
-  var formatted_skills = HTMLskills.replace("%data%", bio.skills[0]);
-  $("#skills").append(formatted_skills);
-  var formatted_skills = HTMLskills.replace("%data%", bio.skills[1]);
-  $("#skills").append(formatted_skills);
-  var formatted_skills = HTMLskills.replace("%data%", bio.skills[2]);
-  $("#skills").append(formatted_skills);
-  var formatted_skills = HTMLskills.replace("%data%", bio.skills[3]);
-  $("#skills").append(formatted_skills);
-  var formatted_skills = HTMLskills.replace("%data%", bio.skills[4]);
-  $("#skills").append(formatted_skills);
-  var formatted_skills = HTMLskills.replace("%data%", bio.skills[6]);
-  $("#skills").append(formatted_skills);
-  var formatted_skills = HTMLskills.replace("%data%", bio.skills[7]);
-  $("#skills").append(formatted_skills);
-  var formatted_skills = HTMLskills.replace("%data%", bio.skills[8]);
-  $("#skills").append(formatted_skills);
-}
-// work
-function displayWork(){
-  for(indexjob in work.jobs) {
-  $("#workExperience").append(HTMLworkStart);
-  var formatted_workEmployer = HTMLworkEmployer.replace("%data%", work.jobs[indexjob].employer);
-  var formatted_workTitle = HTMLworkTitle.replace("%data", work.jobs[indexjob].title);
-  var formatted_employerTitle =  formatted_workEmployer + formatted_workTitle;
-  $(".work-entry:last").append(formatted_employerTitle);
-  var formatted_workDate =  HTMLworkDates.replace("%data%",work.jobs[indexjob].dates);
-  // var formatted_workLocation = HTMLworkLocation.replace("%data%", work.jobs[indexjob].location);
-  $(".work-entry:last").append(formatted_workDate);
-  var formatted_workDescription = HTMLworkDescription.replace("%data%", work.jobs[indexjob].description);
-  $(".work-entry:last").append(formatted_workDescription);
+  if (bio.skills.length > 0){
+    $("#header").append(HTMLskillsStart);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[0]);
+    $("#skills").append(formatted_skills);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[1]);
+    $("#skills").append(formatted_skills);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[2]);
+    $("#skills").append(formatted_skills);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[3]);
+    $("#skills").append(formatted_skills);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[4]);
+    $("#skills").append(formatted_skills);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[6]);
+    $("#skills").append(formatted_skills);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[7]);
+    $("#skills").append(formatted_skills);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[8]);
+    $("#skills").append(formatted_skills);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[9]);
+    $("#skills").append(formatted_skills);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[10]);
+    $("#skills").append(formatted_skills);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[11]);
+    $("#skills").append(formatted_skills);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[12]);
+    $("#skills").append(formatted_skills);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[13]);
+    $("#skills").append(formatted_skills);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[14]);
+    $("#skills").append(formatted_skills);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[15]);
+    $("#skills").append(formatted_skills);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[16]);
+    $("#skills").append(formatted_skills);
   }
 }
-displayWork();
+bio.display();
 
-
-/*function inName(splitName){
-  var splitName = formatted_name.split(" ");
-  console.log(splitName);
-  splitName[0] = splitName[0].slice(0,1).toUpperCase() + splitName[0].slice(1).toLowerCase();
-  splitName[1] = splitName[1].toUpperCase();
-  return splitName[0] + " " + splitName[1];
-}*
-
-
-/*function inName(name){
-  name = name.split(" ");
-  console.log(name);
-  name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
-  name[1] = name[1].toUpperCase();
-  return name[0] + " " + name[1];
-}*/
-// $("#main").append(internationalizeButton);
-
-projects.display = function() {
-for (project in projects.projects) {
-  $("#projects").append(HTMLprojectStart);
-  var formatted_projTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-  $(".project-entry:last").append(formatted_projTitle);
-  var formatted_projDates = HTMLprojectDates.replace ("%data%", projects.projects[project].dates);
-  $(".project-entry:last").append(formatted_projDates);
-  var formatted_projDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-  $(".project-entry:last").append(formatted_projDescription);
-  var formatted_projImage =HTMLprojectImage.replace("%data%", projects.projects[project].image);
-  $(".project-entry:last").append(formatted_projImage);
+// work
+work.display = function(){
+  for(indexjob in work.jobs) {
+    $("#workExperience").append(HTMLworkStart);
+    var formatted_workEmployer = HTMLworkEmployer.replace("%data%", work.jobs[indexjob].employer);
+    var formatted_workTitle = HTMLworkTitle.replace("%data", work.jobs[indexjob].title);
+    var formatted_employerTitle =  formatted_workEmployer + formatted_workTitle;
+    $(".work-entry:last").append(formatted_employerTitle);
+    var formatted_workDate =  HTMLworkDates.replace("%data%",work.jobs[indexjob].dates);
+    $(".work-entry:last").append(formatted_workDate);
+    var formatted_workLocation = HTMLworkLocation.replace("%data%", work.jobs[indexjob].location);
+    $(".work-entry:last").append(formatted_workLocation);
+    var formatted_workDescription = HTMLworkDescription.replace("%data%", work.jobs[indexjob].description);
+    $(".work-entry:last").append(formatted_workDescription);
+    }
 }
+work.display();
 
+//projects
+projects.display = function() {
+  for (project in projects.projects) {
+    $("#projects").append(HTMLprojectStart);
+    var formatted_projTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+    $(".project-entry:last").append(formatted_projTitle);
+    var formatted_projDates = HTMLprojectDates.replace ("%data%", projects.projects[project].dates);
+    $(".project-entry:last").append(formatted_projDates);
+    var formatted_projDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+    $(".project-entry:last").append(formatted_projDescription);
+    var formatted_projLink =HTMLprojectLink.replace("%data%", projects.projects[project].link);
+    $(".project-entry:last").append(formatted_projLink);
+    var formatted_projImage =HTMLprojectImage.replace("%data%", projects.projects[project].image);
+    $(".project-entry:last").append(formatted_projImage);
+  }
 }
 projects.display();
+
+// education
+education.display = function(){
+  for(indexEdu in education.schools){
+    $("#education").append(HTMLschoolStart);
+    var formatted_eduName = HTMLschoolName.replace("%data%", education.schools[indexEdu].name);
+    $(".education-entry:last").append(formatted_eduName);
+    var formatted_degree = HTMLschoolDegree.replace("%data%", education.schools[indexEdu].degree);
+    $(".education-entry:last").append(formatted_degree);
+    var formatted_major = HTMLschoolMajor.replace("%data%", education.schools[indexEdu].major);
+    $(".education-entry:last").append(formatted_major);
+    var formatted_eduDates = HTMLschoolDates.replace("%data%", education.schools[indexEdu].year);
+    $(".education-entry:last").append(formatted_eduDates);
+    var formatted_eduLocation = HTMLschoolLocation.replace("%data%", education.schools[indexEdu].location);
+    $(".education-entry:last").append(formatted_eduLocation);
+  }
+  for(indexOnedu in education.onlineCourses){
+    $("#education").append(HTMLonlineClasses);
+    var formatted_onTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[indexOnedu].title);
+    $("#education").append(formatted_onTitle);
+    var formatted_onDate = HTMLonlineDates.replace("%data%", education.onlineCourses[indexOnedu].dates);
+    $("#education").append(formatted_onDate);
+    var formatted_onSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[indexOnedu].school);
+    $("#education").append(formatted_onSchool);
+    var formatted_onUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[indexOnedu].url);
+    $("#education").append(formatted_onUrl);
+  }
+}
+education.display();
 
 $("#mapDiv").append(googleMap);
