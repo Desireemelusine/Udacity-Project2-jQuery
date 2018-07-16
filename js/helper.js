@@ -1,12 +1,3 @@
-/*
-
-This file contains all of the code running in the background that makes resumeBuilder.js possible. We call these helper functions because they support your code in this course.
-
-Don't worry, you'll learn what's going on in this file throughout the course. You won't need to make any changes to it until you start experimenting with inserting a Google Map in Problem Set 3.
-
-Cameron Pittman
-*/
-
 
 /*
 These are HTML strings. As part of the course, you'll be using JavaScript functions
@@ -16,12 +7,12 @@ var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
-var HTMLlinkedin = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
+var HTMLmobile = '<li class="flex-item"><span class="fas fa-phone" style="font-size:25px;color:#e27e3f;"></span><span class="white-text">%data%</span></li>';
+var HTMLemail = '<li class="flex-item"><span class="fas fa-envelope" style="font-size:25px;color:#e27e3f;"></span><span class="white-text">%data%</span></li>';
+var HTMLlinkedin = '<li class="flex-item"><span class="fab fa-linkedin" style="font-size:25px;color:#e27e3f;"></span><a href="%data%" target="_blank" class="white-text footer">Linkedin</a></li>';
+var HTMLgithub = '<li class="flex-item"><span class="fab fa-github" style="font-size:25px;color:#e27e3f;" ></span><a href="%data%" target="_blank" class="white-text footer">GitHub</a></li>';
 var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
+var HTMLlocation = '<li class="flex-item"><span class="fas fa-map-pin" style="font-size:25px;color:#e27e3f;"></span><span class="white-text">%data%</span></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
@@ -40,21 +31,21 @@ var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectLink = '<br><a href="#">%data%</a>';
-var HTMLprojectImage = '<img src="%data%">';
+var HTMLprojectLink = '<a href="%data%" target="_blank" class="orange-text">Link</a>';
+var HTMLprojectImage = '<img src="%data%" alt="project_webportfolio" width="45%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
+var HTMLschoolName = '<p>%data%</p>';
+var HTMLschoolDegree = '<a href="#">%data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
-var HTMLschoolMajor = '<em><br> | %data%</em>';
+var HTMLschoolMajor = '<em> | %data%</em>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
-var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+var HTMLonlineTitle = '<a href="#" class="education-online">%data%';
+var HTMLonlineSchool = '<p class="education-online">%data%</p>';
+var HTMLonlineDates = '<div class="date-text education-online">%data%</div>';
+var HTMLonlineURL = '<br><a href="%data%" target="_blank"  class="education-online">Link</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
@@ -74,8 +65,7 @@ $(document).ready(function() {
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in the lesson Flow Control from JavaScript Basics.
 */
-/*var clickLocations = [];
-
+var clickLocations = [];
 function logClicks(x,y) {
   clickLocations.push(
     {
@@ -91,7 +81,7 @@ var x = loc.pageX;
 var y = loc.pageY;
 
 logClicks(x,y);
-});*/
+});
 
 
 
@@ -231,17 +221,14 @@ function initializeMap() {
 
   // locations is an array of location strings returned from locationFinder()
   locations = locationFinder();
-
   // pinPoster(locations) creates pins on the map for each location in
   // the locations array
   pinPoster(locations);
-
 }
 
 /*
 Uncomment the code below when you're ready to implement a Google Map!
 */
-
 // Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);
 

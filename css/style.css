@@ -11,45 +11,37 @@ h5,
 h6 {
   padding: 0;
   margin: 0;
-  font-family: "Roboto", sans-serif;
-}
-
-.clear-fix {
-  overflow: auto;
-}
-
-.education-entry,
-.work-entry,
-.project-entry {
-  padding: 0 5%;
+  font-family: 'Montserrat', 'sans-serif';
 }
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  font-family: 'Poiret One', cursive;
+  font-weight: 300;
+  color: #cc8904;
   line-height: 48px;
   display: inline;
 }
 
 h2 {
-  font-weight: bold;
+  font-family: 'Gruppo', 'sans-serif';
   font-size: 24px;
-  color: #999;
+  color: #a56b81;
   line-height: 29px;
   padding: 10px;
 }
 
 h3 {
-  font-style: italic;
+  font-family: 'Gruppo', 'sans-serif';
   font-size: 20px;
-  color: #000;
+  color: #a56b81;
   line-height: 22px;
 }
 
 h4 {
   font-weight: bold;
   font-size: 14px;
-  color: #4a4a4a;
+  color: #999;
   line-height: 17px;
 }
 
@@ -58,15 +50,55 @@ h3,
 h4,
 h5 {
   padding: 10px 5%;
-
 }
 
+p, em {
+  font-size: 14px;
+  color: #999;
+  line-height: 21px;
+}
+
+a {
+  color: #cc8904;
+  text-decoration: none;
+  margin-top: 10px;
+  display: block;
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  padding: 10px;
+}
+
+span {
+  padding: 5px;
+  font-family: 'Montserrat', 'sans-serif';
+  color: #666666;
+}
+
+.clear-fix {
+  overflow: auto;
+}
+
+.education-entry,
+.work-entry,
+.education-online,
+.project-entry {
+  padding: 0 5%;
+}
+
+.footer {
+  display: inline;
+}
 
 .date-text {
   font-style: italic;
   font-size: 14px;
   color: #999;
-  line-height: 16px;
+  line-height: 21px;
   float: left;
 }
 
@@ -76,45 +108,27 @@ h5 {
   color: #999;
   line-height: 16px;
   float: right;
-
-}
-
-p {
-  font-size: 14px;
-  color: #333;
-  line-height: 21px;
-}
-
-a {
-  color: #1199c3;
-  text-decoration: none;
-  margin-top: 10px;
-  display: block;
 }
 
 .welcome-message {
-  font-style: italic;
-  font-size: 18px;
-  color: #f3f3f3;
+  font-family: 'Montserrat', 'sans-serif';
+  font-size: 14px;
+  color: #666666;
   line-height: 28px;
 }
 
-#skills-h3 {
-  color: #f5ae23;
-  display: none;
-}
-
 .orange {
-  background-color: #f5ae23;
+  background-color: #cc8904;
 }
 
 .orange-text {
-  color: #f5ae23;
+  color: #cc8904;
 }
 
 .white-text {
-  font-weight: bold;
-  color: #fff;
+  font-family: 'Montserrat', 'sans-serif';
+  font-size: 1em;
+  color: #a56b81;
 }
 
 .gray {
@@ -124,12 +138,7 @@ a {
 }
 
 .dark-gray {
-  background-color: #4a4a4a;
-}
-
-/* TODO: Replace with image later */
-#header {
-  background-color: #b4a4bc;
+  background-color: #dbc2ad;
 }
 
 .flex-box {
@@ -152,11 +161,6 @@ a {
   padding: 2.5% 5%;
 }
 
-ul {
-  list-style-type: none;
-}
-
-
 .biopic {
   float: left;
   padding: 10px;
@@ -164,19 +168,24 @@ ul {
   display: none;
 }
 
-img {
-  padding: 10px;
-}
-
-span {
-  padding: 5px;
-}
-
 #lets-connect {
   text-align: center;
 }
 
-/* Media queries to handle various device widths */
+#connect {
+  color: #f3f3f3;
+}
+
+#skills-h3 {
+  color: #cc8904;
+  display: none;
+}
+
+#header {
+  background-color: #dbc2ad;
+}
+
+/* Media queries */
 
 @media only screen and (max-width: 1024px) {
   #lets-connect {

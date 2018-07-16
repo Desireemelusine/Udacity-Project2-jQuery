@@ -1,7 +1,7 @@
 //----------------------------------- JSON -------------------------------------------------
 var bio = {
   "name": "Désirée Melusine",
-  "role": "Junior Front-End Developer",
+  "role": " - Junior Front-End Developer -",
   "welcomeMessage": "I'm a self-learner and eternal curious! If there is a need, an idea, an aim, a passion for the work and the right mindset, the challenges will be defeat by our creative minds and they will become our tools to succeed.",
   "biopic": "images/me.jpg",
   "contacts": {
@@ -11,7 +11,7 @@ var bio = {
     "github": "https://github.com/Desireemelusine",
     "linkedin": "https://www.linkedin.com/in/desiree-melusine"
   },
-  "skills": ["HTML5", "CSS", "JavaScript", "Bootstrap", "jQuery", "JSON", "Git", "GitHub", "Illustrator", "Photoshop", "Indesign", "3Dmax", "Solidworks", "Português | N", "English | F", "French | F", "Spanish | Adv"]
+  "skills": ["HTML5", "CSS", "JavaScript", "Bootstrap", "jQuery", "JSON", "Git", "GitHub", "WebResponsive", "CommandLine", "Illustrator", "Photoshop", "Indesign", "3Dmax", "Solidworks", "Português", "English", "French", "Spanish"]
 }
 
 var education = {
@@ -41,7 +41,7 @@ var education = {
   "onlineCourses": [
     {
       "title": "Nanodegree in Front-End Developer",
-      "dates": 2018,
+      "dates": "2018 | Nanodegree",
       "school": "Udacity",
       "url": "https://eu.udacity.com/"
     }
@@ -111,7 +111,7 @@ bio.display = function(){
   var formatted_location = HTMLlocation.replace("%data%", bio.contacts.location);
   var formatted_linkedin = HTMLlinkedin.replace("%data%", bio.contacts.linkedin);
   var formatted_github = HTMLgithub.replace("%data%", bio.contacts.github);
-  $("#topContacts").append(formatted_mobile).append(formatted_email).append(formatted_location).append(formatted_linkedin).append(formatted_github);
+  $("#footerContacts").append(formatted_mobile).append(formatted_email).append(formatted_location).append(formatted_linkedin).append(formatted_github);
 
   if (bio.skills.length > 0){
     $("#header").append(HTMLskillsStart);
@@ -125,13 +125,15 @@ bio.display = function(){
     $("#skills").append(formatted_skills);
     var formatted_skills = HTMLskills.replace("%data%", bio.skills[4]);
     $("#skills").append(formatted_skills);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[5]);
+    $("#skills").append(formatted_skills);
     var formatted_skills = HTMLskills.replace("%data%", bio.skills[6]);
     $("#skills").append(formatted_skills);
     var formatted_skills = HTMLskills.replace("%data%", bio.skills[7]);
     $("#skills").append(formatted_skills);
     var formatted_skills = HTMLskills.replace("%data%", bio.skills[8]);
     $("#skills").append(formatted_skills);
-    var formatted_skills = HTMLskills.replace("%data%", bio.skills[9]);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[09]);
     $("#skills").append(formatted_skills);
     var formatted_skills = HTMLskills.replace("%data%", bio.skills[10]);
     $("#skills").append(formatted_skills);
@@ -147,6 +149,10 @@ bio.display = function(){
     $("#skills").append(formatted_skills);
     var formatted_skills = HTMLskills.replace("%data%", bio.skills[16]);
     $("#skills").append(formatted_skills);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[17]);
+    $("#skills").append(formatted_skills);
+    var formatted_skills = HTMLskills.replace("%data%", bio.skills[18]);
+    $("#skills").append(formatted_skills);
   }
 }
 bio.display();
@@ -156,7 +162,7 @@ work.display = function(){
   for(indexjob in work.jobs) {
     $("#workExperience").append(HTMLworkStart);
     var formatted_workEmployer = HTMLworkEmployer.replace("%data%", work.jobs[indexjob].employer);
-    var formatted_workTitle = HTMLworkTitle.replace("%data", work.jobs[indexjob].title);
+    var formatted_workTitle = HTMLworkTitle.replace("%data%", work.jobs[indexjob].title);
     var formatted_employerTitle =  formatted_workEmployer + formatted_workTitle;
     $(".work-entry:last").append(formatted_employerTitle);
     var formatted_workDate =  HTMLworkDates.replace("%data%",work.jobs[indexjob].dates);
@@ -191,10 +197,10 @@ projects.display();
 education.display = function(){
   for(indexEdu in education.schools){
     $("#education").append(HTMLschoolStart);
-    var formatted_eduName = HTMLschoolName.replace("%data%", education.schools[indexEdu].name);
-    $(".education-entry:last").append(formatted_eduName);
     var formatted_degree = HTMLschoolDegree.replace("%data%", education.schools[indexEdu].degree);
     $(".education-entry:last").append(formatted_degree);
+    var formatted_eduName = HTMLschoolName.replace("%data%", education.schools[indexEdu].name);
+    $(".education-entry:last").append(formatted_eduName);
     var formatted_major = HTMLschoolMajor.replace("%data%", education.schools[indexEdu].major);
     $(".education-entry:last").append(formatted_major);
     var formatted_eduDates = HTMLschoolDates.replace("%data%", education.schools[indexEdu].year);
@@ -206,10 +212,10 @@ education.display = function(){
     $("#education").append(HTMLonlineClasses);
     var formatted_onTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[indexOnedu].title);
     $("#education").append(formatted_onTitle);
-    var formatted_onDate = HTMLonlineDates.replace("%data%", education.onlineCourses[indexOnedu].dates);
-    $("#education").append(formatted_onDate);
     var formatted_onSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[indexOnedu].school);
     $("#education").append(formatted_onSchool);
+    var formatted_onDate = HTMLonlineDates.replace("%data%", education.onlineCourses[indexOnedu].dates);
+    $("#education").append(formatted_onDate);
     var formatted_onUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[indexOnedu].url);
     $("#education").append(formatted_onUrl);
   }
