@@ -98,6 +98,13 @@ var projects = {
 }
 //----------------------------------- END JSON -------------------------------------------------
 
+/* I decided to present in both ways just as a remind of the different construction.Nevertheless the .forEach is in my opnion the correct one. Read text above.
+forEach or for loops are preferred over for-in loops when iterating over an array.for-in loops are used to loop over keys in an object.
+This can be error prone because for-in does not loop from 0 to length - 1 but over all the present keys in the object and its prototype chain.
+If possible, organize data so it is not necessary to iterate over objects.
+If that isn't possible, wrap the content of the for-in loop in a conditional statement to prevent it from from iterating over the prototype chain.
+*/
+
 //bio
 bio.display = function(){
   var formatted_name = HTMLheaderName.replace("%data%", bio.name);
@@ -105,6 +112,13 @@ bio.display = function(){
   var formatted_message = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
   var formatted_biopic = HTMLbioPic.replace("%data%",bio.biopic);
   $("#header").prepend(formatted_biopic).prepend(formatted_message).prepend(formatted_role).prepend(formatted_name);
+  var formatted_contacts = HTMLcontactGeneric.replace("%data%", bio.contacts);
+  var formatted_mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+  var formatted_email = HTMLemail.replace("%data%", bio.contacts.email);
+  var formatted_location = HTMLlocation.replace("%data%", bio.contacts.location);
+  var formatted_linkedin = HTMLlinkedin.replace("%data%", bio.contacts.linkedin);
+  var formatted_github = HTMLgithub.replace("%data%", bio.contacts.github);
+  $("#topContacts").append(formatted_mobile).append(formatted_email).append(formatted_location).append(formatted_linkedin).append(formatted_github);
   var formatted_contacts = HTMLcontactGeneric.replace("%data%", bio.contacts);
   var formatted_mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
   var formatted_email = HTMLemail.replace("%data%", bio.contacts.email);
@@ -159,19 +173,19 @@ bio.display();
 
 // work
 work.display = function(){
-  for(indexjob in work.jobs) {
+  work.jobs.forEach(function(indexjob){
     $("#workExperience").append(HTMLworkStart);
-    var formatted_workEmployer = HTMLworkEmployer.replace("%data%", work.jobs[indexjob].employer);
-    var formatted_workTitle = HTMLworkTitle.replace("%data%", work.jobs[indexjob].title);
+    var formatted_workEmployer = HTMLworkEmployer.replace("%data%", indexjob.employer);
+    var formatted_workTitle = HTMLworkTitle.replace("%data%", indexjob.title);
     var formatted_employerTitle =  formatted_workEmployer + formatted_workTitle;
     $(".work-entry:last").append(formatted_employerTitle);
-    var formatted_workDate =  HTMLworkDates.replace("%data%",work.jobs[indexjob].dates);
+    var formatted_workDate =  HTMLworkDates.replace("%data%",indexjob.dates);
     $(".work-entry:last").append(formatted_workDate);
-    var formatted_workLocation = HTMLworkLocation.replace("%data%", work.jobs[indexjob].location);
+    var formatted_workLocation = HTMLworkLocation.replace("%data%", indexjob.location);
     $(".work-entry:last").append(formatted_workLocation);
-    var formatted_workDescription = HTMLworkDescription.replace("%data%", work.jobs[indexjob].description);
+    var formatted_workDescription = HTMLworkDescription.replace("%data%", indexjob.description);
     $(".work-entry:last").append(formatted_workDescription);
-    }
+    })
 }
 work.display();
 
@@ -195,31 +209,32 @@ projects.display();
 
 // education
 education.display = function(){
-  for(indexEdu in education.schools){
+  education.schools.forEach(function(indexEdu){
     $("#education").append(HTMLschoolStart);
-    var formatted_degree = HTMLschoolDegree.replace("%data%", education.schools[indexEdu].degree);
+    var formatted_degree = HTMLschoolDegree.replace("%data%", indexEdu.degree);
     $(".education-entry:last").append(formatted_degree);
-    var formatted_eduName = HTMLschoolName.replace("%data%", education.schools[indexEdu].name);
+    var formatted_eduName = HTMLschoolName.replace("%data%", indexEdu.name);
     $(".education-entry:last").append(formatted_eduName);
-    var formatted_major = HTMLschoolMajor.replace("%data%", education.schools[indexEdu].major);
+    var formatted_major = HTMLschoolMajor.replace("%data%", indexEdu.major);
     $(".education-entry:last").append(formatted_major);
-    var formatted_eduDates = HTMLschoolDates.replace("%data%", education.schools[indexEdu].year);
+    var formatted_eduDates = HTMLschoolDates.replace("%data%", indexEdu.year);
     $(".education-entry:last").append(formatted_eduDates);
-    var formatted_eduLocation = HTMLschoolLocation.replace("%data%", education.schools[indexEdu].location);
+    var formatted_eduLocation = HTMLschoolLocation.replace("%data%", indexEdu.location);
     $(".education-entry:last").append(formatted_eduLocation);
-  }
-  for(indexOnedu in education.onlineCourses){
+  })
+  education.onlineCourses.forEach(function(indexOnedu){
     $("#education").append(HTMLonlineClasses);
-    var formatted_onTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[indexOnedu].title);
+    var formatted_onTitle = HTMLonlineTitle.replace("%data%", indexOnedu.title);
     $("#education").append(formatted_onTitle);
-    var formatted_onSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[indexOnedu].school);
+    var formatted_onSchool = HTMLonlineSchool.replace("%data%", indexOnedu.school);
     $("#education").append(formatted_onSchool);
-    var formatted_onDate = HTMLonlineDates.replace("%data%", education.onlineCourses[indexOnedu].dates);
+    var formatted_onDate = HTMLonlineDates.replace("%data%", indexOnedu.dates);
     $("#education").append(formatted_onDate);
-    var formatted_onUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[indexOnedu].url);
+    var formatted_onUrl = HTMLonlineURL.replace("%data%", indexOnedu.url);
     $("#education").append(formatted_onUrl);
-  }
+  })
 }
 education.display();
+
 
 $("#mapDiv").append(googleMap);
