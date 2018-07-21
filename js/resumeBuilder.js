@@ -118,13 +118,6 @@ bio.display = function(){
   var formatted_location = HTMLlocation.replace("%data%", bio.contacts.location);
   var formatted_linkedin = HTMLlinkedin.replace("%data%", bio.contacts.linkedin);
   var formatted_github = HTMLgithub.replace("%data%", bio.contacts.github);
-  $("#topContacts").append(formatted_mobile).append(formatted_email).append(formatted_location).append(formatted_linkedin).append(formatted_github);
-  var formatted_contacts = HTMLcontactGeneric.replace("%data%", bio.contacts);
-  var formatted_mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-  var formatted_email = HTMLemail.replace("%data%", bio.contacts.email);
-  var formatted_location = HTMLlocation.replace("%data%", bio.contacts.location);
-  var formatted_linkedin = HTMLlinkedin.replace("%data%", bio.contacts.linkedin);
-  var formatted_github = HTMLgithub.replace("%data%", bio.contacts.github);
   $("#footerContacts").append(formatted_mobile).append(formatted_email).append(formatted_location).append(formatted_linkedin).append(formatted_github);
 
   if (bio.skills.length > 0){
