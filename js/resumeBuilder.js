@@ -11,7 +11,7 @@ var bio = {
     "github": "https://github.com/Desireemelusine",
     "linkedin": "https://www.linkedin.com/in/desiree-melusine"
   },
-  "skills": ["HTML5", "CSS", "JavaScript", "Bootstrap", "jQuery", "JSON", "Git", "GitHub", "WebResponsive", "CommandLine", "Illustrator", "Photoshop", "Indesign", "3Dmax", "Solidworks", "Português", "English", "French", "Spanish"]
+  "skills": ["HTML5", "CSS", "JavaScript", "Bootstrap", "jQuery", "JSON", "WebResponsive", "Illustrator", "Photoshop", "Indesign", "3Dmax", "Solidworks", "Português", "English", "French", "Spanish"]
 }
 
 var education = {
@@ -153,12 +153,6 @@ bio.display = function(){
     var formatted_skills = HTMLskills.replace("%data%", bio.skills[14]);
     $("#skills").append(formatted_skills);
     var formatted_skills = HTMLskills.replace("%data%", bio.skills[15]);
-    $("#skills").append(formatted_skills);
-    var formatted_skills = HTMLskills.replace("%data%", bio.skills[16]);
-    $("#skills").append(formatted_skills);
-    var formatted_skills = HTMLskills.replace("%data%", bio.skills[17]);
-    $("#skills").append(formatted_skills);
-    var formatted_skills = HTMLskills.replace("%data%", bio.skills[18]);
     $("#skills").append(formatted_skills);
   }
 }
